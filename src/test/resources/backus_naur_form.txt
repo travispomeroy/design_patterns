@@ -1,0 +1,12 @@
+<FSM> ::= <header>* <logic>
+<header> ::= <name> ":" <name>
+
+<logic> ::= "{" <transition>* "}"
+<transition> ::= <state-spec> <subtransition> | <state-spec> "{" <subtransition>* "}"
+<state-spec> ::= <state> <state-modifier>*
+<state> ::= <name> | "(" <name> ")"
+<state-modifier> ::= ":" <name" | "<" <name> | ">" <name>
+<subtransition> ::= <event> <next-state> <action>
+<event> ::= <name> | "-"
+<next-state> ::= <state> | "-"
+<action> ::= <name> | "{" <name>* "}" | "-"
